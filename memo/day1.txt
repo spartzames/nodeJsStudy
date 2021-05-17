@@ -1,0 +1,50 @@
+[이걸 모르면 javascript 모르는 것]
+1. 실행 컨텍스트
+2. event loop
+3. protoType
+
+
+*** 2장 ***
+
+[호출스택 / 백그라운드 / 태스크 큐 / 메모리]
+1. setTimeout과 같은 비동기 함수는
+	호출 되었을때 task를 백그라운드로 보내고 대기.
+
+2. 백그라운드에서 실행할 task 차례가 오면 태스크 큐로 보냄. (백그라운드는 비워짐)
+   * 백그라운드는 다른 thread로 비동기 실행됨.
+    -> 호출스택은 javscript고 백그라운드, 태스크 큐는 다른 언어로 구성된 타 영역.
+   * 백그라운드로 보낼 수 있는 함수는 제한되어있다. (ex. setTimeout, setInterval, 통신, fs, crypto 등)
+
+3. 태스크 큐는 호출스택이 비었을 때 task를 호출스택으로 보냄. (태스크 큐는 비워짐)
+
+4. 백그라운드로 넘어가지 않는 함수는
+   백그라운드의 함수보다 먼저 실행된다.
+
+5. promise는 resolve 내부까지는 동기
+   then을 만나는 순간 비동기로 간다.
+  * promise의 then, catch는 timer 보다 
+ 우선순위가 높음.
+
+
+[var / let / const]
+1. var는 함수 scope를 존중
+2. let, const는 블록 scope를 존중
+3. const는 '='을 한번만 쓸 수 있다.
+   * 상수로 생각하기엔 애매함.
+4. let은 '='을 여러번 쓸 수 있다.
+
+
+[this]
+1. 함수의 this는 부모 function this와 내 function this가 다른 this.
+-> 따라서 var _this = this; 를 사용했음.
+
+2. 화살표 함수의 this는 자기만의 this가 없고 무조건 부모의 this를 사용.
+
+[URL / URI]
+1. URL : 서버에 있는 파일의 위치
+2. URI : 서버에 있는 자원의 위치
+
+
+*** 3장 ***
+
+node helloWorld -> node는 javascript 실행기
