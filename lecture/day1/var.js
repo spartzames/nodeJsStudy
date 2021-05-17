@@ -5,3 +5,5 @@ module.exports = {
     odd,
     even,
 };
+
+// export default { odd, even };
